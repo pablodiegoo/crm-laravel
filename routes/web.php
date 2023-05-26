@@ -36,8 +36,22 @@ Route::get('/', function () {
 
 // route::get('/post/{id}', 'App\Http\Controllers\PostController@index');
 
-route::resource('posts', 'App\Http\Controllers\PostController');
+// route::resource('posts', 'App\Http\Controllers\PostController');
 
-route::get('/contact', 'App\Http\Controllers\PostController@contact');
+// route::get('/contact', 'App\Http\Controllers\PostController@contact');
 
-route::get('post/{id}/{name}/{password}', 'App\Http\Controllers\PostController@show_post');
+// route::get('post/{id}/{name}/{password}', 'App\Http\Controllers\PostController@show_post');
+
+// route::get('/read', function () {
+//     $results = DB::select('select * from posts where id = ?', [1]);
+
+//     foreach ($results as $post) {
+//         return $post->title;
+//     }
+// });
+
+
+route::get('/update', function () {
+    $updated = DB::update('update posts set title = "Update title" where id = ?', [1]);
+    return $updated;
+});
